@@ -1,0 +1,2270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hariri Academic Support — Bantuan Akademik</title>
+
+    <meta name="description"
+          content="Bantuan penyusunan, editing, formatting, referensi, dan presentasi akademik yang rapi dan terstruktur.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0f172a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .nav-container {
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: #6366f1;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .nav-button {
+            background: #6366f1;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            padding: 100px 0 90px;
+            text-align: center;
+            background:
+                radial-gradient(circle at top, rgba(99,102,241,0.18), transparent 45%);
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(99,102,241,0.12);
+            border: 1px solid rgba(99,102,241,0.3);
+            color: #a5b4fc;
+            padding: 7px 14px;
+            border-radius: 50px;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 6vw, 70px);
+            line-height: 1.08;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .hero h1 span {
+            color: #818cf8;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 25px auto;
+            color: #94a3b8;
+            font-size: 17px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .primary-btn {
+            background: #6366f1;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-2px);
+            background: #4f46e5;
+        }
+
+        .secondary-btn {
+            border: 1px solid #334155;
+            color: #cbd5e1;
+        }
+
+        .secondary-btn:hover {
+            background: #1e293b;
+        }
+
+        /* =========================
+           TRUST
+        ========================= */
+
+        .trust {
+            padding: 25px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .trust-items {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            text-align: center;
+        }
+
+        .trust-item {
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .trust-item strong {
+            display: block;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        /* =========================
+           GENERAL SECTION
+        ========================= */
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: #818cf8;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            margin-top: 8px;
+        }
+
+        .section-title p {
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 12px auto;
+        }
+
+        /* =========================
+           SERVICES
+        ========================= */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: #111c31;
+            border: 1px solid #24324a;
+            border-radius: 18px;
+            padding: 28px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #6366f1;
+        }
+
+        .icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(99,102,241,0.12);
+            font-size: 23px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        /* =========================
+           WHY US
+        ========================= */
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .why-text h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .why-text p {
+            color: #94a3b8;
+            margin-bottom: 25px;
+        }
+
+        .why-list {
+            list-style: none;
+        }
+
+        .why-list li {
+            margin-bottom: 15px;
+            color: #cbd5e1;
+        }
+
+        .why-list li span {
+            color: #818cf8;
+            margin-right: 10px;
+        }
+
+        .why-box {
+            background: linear-gradient(
+                145deg,
+                #172554,
+                #111c31
+            );
+            border: 1px solid #334155;
+            border-radius: 25px;
+            padding: 45px;
+        }
+
+        .why-box h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .why-box p {
+            color: #cbd5e1;
+        }
+
+        /* =========================
+           PRICING
+        ========================= */
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .pricing-card {
+            background: #111c31;
+            border: 1px solid #24324a;
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        .pricing-card.featured {
+            border: 2px solid #6366f1;
+            transform: scale(1.03);
+        }
+
+        .popular {
+            display: inline-block;
+            background: #6366f1;
+            padding: 5px 10px;
+            border-radius: 50px;
+            font-size: 11px;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 35px;
+            font-weight: 800;
+            margin: 15px 0;
+        }
+
+        .price small {
+            font-size: 13px;
+            color: #64748b;
+            font-weight: normal;
+        }
+
+        .features {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .features li {
+            margin-bottom: 12px;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .features li::before {
+            content: "✓";
+            color: #818cf8;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .price-btn {
+            display: block;
+            text-align: center;
+            padding: 13px;
+            border-radius: 10px;
+            background: #6366f1;
+            font-weight: 700;
+        }
+
+        /* =========================
+           PORTFOLIO
+        ========================= */
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            min-width: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border-radius: 18px;
+            border: 1px solid #24324a;
+            background: #111c31;
+            box-shadow: 0 12px 30px rgba(2, 6, 23, 0.14);
+            transition: transform 0.3s ease, border-color 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-6px);
+            border-color: #6366f1;
+            box-shadow: 0 18px 38px rgba(2, 6, 23, 0.28);
+        }
+
+        .portfolio-preview {
+            position: relative;
+            height: 150px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, #172554, #111c31);
+            border-bottom: 1px solid #24324a;
+        }
+
+        .portfolio-preview-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-preview-image {
+            transform: scale(1.05);
+        }
+
+        .portfolio-preview::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent 25%, rgba(129, 140, 248, 0.12), transparent 75%);
+            transform: translateX(-100%);
+            transition: transform 0.45s ease;
+        }
+
+        .portfolio-item:hover .portfolio-preview::after {
+            transform: translateX(100%);
+        }
+
+        .portfolio-document {
+            position: relative;
+            z-index: 1;
+            width: 108px;
+            height: 116px;
+            padding: 24px 14px 12px;
+            background: #e2e8f0;
+            border-radius: 5px;
+            box-shadow: 0 12px 22px rgba(2, 6, 23, 0.3);
+            color: #334155;
+            transform: rotate(-3deg);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-document {
+            transform: rotate(0) scale(1.05);
+        }
+
+        .portfolio-document::before,
+        .portfolio-document::after {
+            content: "";
+            display: block;
+            height: 5px;
+            margin-bottom: 9px;
+            border-radius: 3px;
+            background: #94a3b8;
+        }
+
+        .portfolio-document::after {
+            width: 65%;
+            margin-bottom: 0;
+        }
+
+        .portfolio-document span {
+            position: absolute;
+            top: 10px;
+            left: 14px;
+            color: #4f46e5;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .portfolio-document.presentation {
+            width: 132px;
+            height: 82px;
+            padding-top: 30px;
+            transform: rotate(2deg);
+        }
+
+        .portfolio-document.presentation span {
+            color: #7c3aed;
+        }
+
+        .portfolio-content {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 22px;
+        }
+
+        .portfolio-badge,
+        .portfolio-label {
+            display: inline-block;
+            color: #a5b4fc;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+        }
+
+        .portfolio-badge {
+            margin-bottom: 12px;
+            padding: 5px 9px;
+            border: 1px solid rgba(99, 102, 241, 0.35);
+            border-radius: 50px;
+            background: rgba(99, 102, 241, 0.12);
+        }
+
+        .portfolio-item h3 {
+            margin-bottom: 9px;
+            color: #ffffff;
+            font-size: 17px;
+            line-height: 1.4;
+        }
+
+        .portfolio-item p {
+            margin-bottom: 20px;
+            color: #94a3b8;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .portfolio-label {
+            margin-top: auto;
+            margin-bottom: 13px;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        .portfolio-detail {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            background: transparent;
+            color: #cbd5e1;
+            font: inherit;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s ease, border-color 0.3s ease,
+                color 0.3s ease;
+        }
+
+        .portfolio-detail:hover,
+        .portfolio-detail:focus-visible {
+            border-color: #818cf8;
+            background: rgba(99, 102, 241, 0.12);
+            color: #ffffff;
+            outline: none;
+        }
+
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: -20px auto 34px;
+        }
+
+        .portfolio-filter {
+            padding: 9px 15px;
+            border: 1px solid #334155;
+            border-radius: 50px;
+            background: transparent;
+            color: #94a3b8;
+            font: inherit;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s ease, border-color 0.3s ease,
+                color 0.3s ease, transform 0.3s ease;
+        }
+
+        .portfolio-filter:hover,
+        .portfolio-filter:focus-visible,
+        .portfolio-filter.active {
+            border-color: #6366f1;
+            background: rgba(99, 102, 241, 0.15);
+            color: #ffffff;
+            outline: none;
+        }
+
+        .portfolio-filter:active {
+            transform: scale(0.97);
+        }
+
+        .portfolio-grid {
+            transition: opacity 0.25s ease, transform 0.25s ease;
+        }
+
+        .portfolio-grid.is-transitioning {
+            opacity: 0;
+            transform: translateY(8px);
+        }
+
+        .portfolio-item.portfolio-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .portfolio-item.portfolio-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .portfolio-modal[hidden] {
+            display: none;
+        }
+
+        .portfolio-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 1100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: rgba(2, 6, 23, 0.78);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-modal.is-open {
+            opacity: 1;
+        }
+
+        .portfolio-modal-dialog {
+            position: relative;
+            width: min(680px, 100%);
+            max-height: min(720px, 90vh);
+            overflow-y: auto;
+            padding: 28px;
+            border: 1px solid #334155;
+            border-radius: 20px;
+            background: #111c31;
+            box-shadow: 0 24px 70px rgba(2, 6, 23, 0.5);
+            transform: scale(0.94);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-modal.is-open .portfolio-modal-dialog {
+            transform: scale(1);
+        }
+
+        .portfolio-modal-close {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 36px;
+            height: 36px;
+            border: 1px solid #334155;
+            border-radius: 50%;
+            background: #172554;
+            color: #cbd5e1;
+            font-size: 22px;
+            line-height: 1;
+            cursor: pointer;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .portfolio-modal-close:hover,
+        .portfolio-modal-close:focus-visible {
+            border-color: #818cf8;
+            background: #312e81;
+            color: #ffffff;
+            outline: none;
+        }
+
+        .portfolio-modal-preview {
+            margin-bottom: 24px;
+        }
+
+        .portfolio-modal-preview .portfolio-preview-image {
+            position: relative;
+            display: block;
+            height: 260px;
+        }
+
+        .portfolio-modal-dialog h2 {
+            max-width: 580px;
+            margin: 12px 44px 12px 0;
+            font-size: clamp(22px, 4vw, 30px);
+            line-height: 1.3;
+        }
+
+        .portfolio-modal-description {
+            margin-bottom: 20px;
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+
+        .portfolio-modal-dialog h3 {
+            margin-bottom: 10px;
+            color: #a5b4fc;
+            font-size: 14px;
+        }
+
+        .portfolio-detail-list,
+        .portfolio-before-after {
+            color: #cbd5e1;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .portfolio-detail-list {
+            padding-left: 20px;
+        }
+
+        .portfolio-detail-list li::marker {
+            color: #818cf8;
+        }
+
+        .portfolio-before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 16px;
+        }
+
+        .portfolio-before-after > div {
+            padding: 16px;
+            border: 1px solid #24324a;
+            border-radius: 12px;
+            background: #0f172a;
+        }
+
+        .portfolio-before-after strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #a5b4fc;
+        }
+
+        .portfolio-before-after ul {
+            padding-left: 18px;
+        }
+
+        .portfolio-cta {
+            margin-top: 44px;
+            padding: 30px;
+            border: 1px solid #334155;
+            border-radius: 18px;
+            background: linear-gradient(145deg, rgba(49, 46, 129, 0.35), #111c31);
+            text-align: center;
+        }
+
+        .portfolio-cta h3 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+
+        .portfolio-cta p {
+            margin-bottom: 18px;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .portfolio-cta-link {
+            display: inline-block;
+            padding: 12px 18px;
+            border-radius: 10px;
+            background: #6366f1;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 700;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .portfolio-cta-link:hover,
+        .portfolio-cta-link:focus-visible {
+            background: #4f46e5;
+            outline: none;
+            transform: translateY(-2px);
+        }
+
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .portfolio-grid,
+            .portfolio-item.portfolio-reveal,
+            .portfolio-modal,
+            .portfolio-modal-dialog,
+            .portfolio-document,
+            .portfolio-preview::after {
+                transition: none;
+            }
+        }
+
+        /* =========================
+           HOW TO ORDER
+        ========================= */
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .number {
+            width: 55px;
+            height: 55px;
+            margin: auto auto 18px;
+            border-radius: 50%;
+            background: rgba(99,102,241,0.15);
+            color: #818cf8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 20px;
+        }
+
+        .step p {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        /* =========================
+           TESTIMONIAL
+        ========================= */
+
+        .testimonial-section .section-title {
+            margin-bottom: 42px;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .testimonial-card {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 315px;
+            padding: 28px;
+            background: #111c31;
+            border: 1px solid #24324a;
+            border-radius: 20px;
+            box-shadow: 0 12px 30px rgba(2, 6, 23, 0.14);
+            opacity: 0;
+            transform: translateY(32px);
+            transition: transform 0.35s ease, border-color 0.35s ease,
+                box-shadow 0.35s ease, opacity 0.6s ease;
+        }
+
+        .testimonial-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .testimonial-card:hover,
+        .testimonial-card:focus-within {
+            border-color: #6366f1;
+            box-shadow: 0 18px 38px rgba(2, 6, 23, 0.28);
+            transform: translateY(-7px);
+        }
+
+        .testimonial-card::before {
+            content: "“";
+            position: absolute;
+            top: 4px;
+            right: 20px;
+            color: #818cf8;
+            font-family: Georgia, serif;
+            font-size: 78px;
+            line-height: 1;
+            opacity: 0.16;
+            pointer-events: none;
+        }
+
+        .testimonial-user {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            flex: 0 0 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #818cf8, #4f46e5);
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .testimonial-user h3 {
+            margin-bottom: 2px;
+            font-size: 16px;
+        }
+
+        .testimonial-user span {
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        .testimonial-rating {
+            margin-top: 18px;
+            color: #facc15;
+            font-size: 17px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-quote {
+            position: relative;
+            z-index: 1;
+            margin-top: 18px;
+            color: #cbd5e1;
+            font-size: 15px;
+            line-height: 1.75;
+        }
+
+        .testimonial-note {
+            margin-top: 34px;
+            color: #64748b;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .testimonial-card {
+                opacity: 1;
+                transform: none;
+                transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            }
+        }
+
+        /* =========================
+           FAQ
+        ========================= */
+
+        .faq {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #24324a;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            color: #ffffff;
+            text-align: left;
+            padding: 20px 0;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.3s;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .faq-answer p {
+            padding-bottom: 20px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .cta-box {
+            max-width: 900px;
+            margin: auto;
+            padding: 60px 30px;
+            border-radius: 25px;
+            background:
+                radial-gradient(
+                    circle at top,
+                    rgba(99,102,241,0.25),
+                    transparent 60%
+                ),
+                #111c31;
+            border: 1px solid #334155;
+        }
+
+        .cta h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #94a3b8;
+            margin-bottom: 25px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            border-top: 1px solid #24324a;
+            padding: 30px 0;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        /* =========================
+           WHATSAPP FLOAT
+        ========================= */
+
+        .whatsapp {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #22c55e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 27px;
+            z-index: 999;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .trust-items,
+            .services-grid,
+            .pricing-grid,
+            .portfolio-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .hero {
+                padding: 70px 0;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .trust-items,
+            .services-grid,
+            .pricing-grid,
+            .portfolio-grid,
+            .steps,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-box {
+                padding: 30px;
+            }
+
+            .cta h2 {
+                font-size: 30px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav>
+    <div class="container nav-container">
+
+        <a href="#" class="logo">
+            Hariri Academic <span>Support</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#layanan">Layanan</a></li>
+            <li><a href="#harga">Harga</a></li>
+            <li><a href="#proses">Cara Order</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+
+        <a
+            href="https://wa.me/085963959839"
+            class="nav-button"
+            target="_blank">
+            WhatsApp
+        </a>
+
+    </div>
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<header class="hero">
+
+    <div class="container">
+
+        <div class="badge">
+            ✦ Bantuan Akademik Profesional
+        </div>
+
+        <h1>
+            Selesaikan Urusan Akademik
+            <span>Tanpa Ribet.</span>
+        </h1>
+
+        <p>
+            Bantuan penyusunan, editing, formatting, referensi,
+            dan presentasi akademik yang rapi dan terstruktur.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+                href="https://wa.me/085963959839?text=Halo%20saya%20ingin%20konsultasi%20mengenai%20layanan%20akademik."
+                class="primary-btn"
+                target="_blank">
+                💬 Konsultasi WhatsApp
+            </a>
+
+            <a
+                href="#layanan"
+                class="secondary-btn">
+                Lihat Layanan
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     TRUST
+========================= -->
+
+<div class="trust">
+
+    <div class="container trust-items">
+
+        <div class="trust-item">
+            <strong>✓ Rapi</strong>
+            Formatting profesional
+        </div>
+
+        <div class="trust-item">
+            <strong>✓ Fleksibel</strong>
+            Sesuai kebutuhan
+        </div>
+
+        <div class="trust-item">
+            <strong>✓ Revisi</strong>
+            Sesuai paket layanan
+        </div>
+
+        <div class="trust-item">
+            <strong>✓ Privasi</strong>
+            Data tetap aman
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     SERVICES
+========================= -->
+
+<section id="layanan">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>Layanan</span>
+
+            <h2>Apa yang Bisa Kami Bantu?</h2>
+
+            <p>
+                Pilih layanan sesuai kebutuhan akademik kamu.
+            </p>
+
+        </div>
+
+
+        <div class="portfolio-filters" role="group" aria-label="Filter kategori portfolio">
+            <button class="portfolio-filter active" type="button" data-filter="Semua" aria-pressed="true">Semua</button>
+            <button class="portfolio-filter" type="button" data-filter="Makalah" aria-pressed="false">Makalah</button>
+            <button class="portfolio-filter" type="button" data-filter="Presentasi" aria-pressed="false">Presentasi</button>
+            <button class="portfolio-filter" type="button" data-filter="Formatting" aria-pressed="false">Formatting</button>
+        </div>
+
+
+        <div class="services-grid">
+
+            <div class="card">
+
+                <div class="icon">📄</div>
+
+                <h3>Penyusunan Makalah</h3>
+
+                <p>
+                    Bantuan menyusun struktur dan mengembangkan
+                    tulisan berdasarkan brief dan materi yang diberikan.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">✍️</div>
+
+                <h3>Editing & Revisi</h3>
+
+                <p>
+                    Membantu memperbaiki struktur tulisan,
+                    tata bahasa, dan keterbacaan dokumen.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">📚</div>
+
+                <h3>Referensi & Sitasi</h3>
+
+                <p>
+                    Membantu merapikan daftar pustaka,
+                    kutipan, dan format referensi.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">📝</div>
+
+                <h3>Formatting Word</h3>
+
+                <p>
+                    Cover, margin, heading, daftar isi,
+                    nomor halaman, spacing, dan layout.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">📊</div>
+
+                <h3>Presentasi</h3>
+
+                <p>
+                    Membantu mengubah materi menjadi
+                    slide presentasi yang rapi dan mudah dipahami.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🎯</div>
+
+                <h3>Konsultasi Akademik</h3>
+
+                <p>
+                    Diskusikan kebutuhan dan kendala tugas
+                    sebelum menentukan layanan yang sesuai.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     WHY US
+========================= -->
+
+<section>
+
+    <div class="container why-grid">
+
+        <div class="why-text">
+
+            <span style="color:#818cf8;font-weight:700;">
+                KENAPA KAMI?
+            </span>
+
+            <h2>
+                Bukan cuma selesai.
+                Tapi harus rapi.
+            </h2>
+
+            <p>
+                Kami membantu menyiapkan dokumen akademik
+                dengan struktur yang jelas, tampilan rapi,
+                dan mengikuti kebutuhan yang diberikan.
+            </p>
+
+            <ul class="why-list">
+
+                <li>
+                    <span>✓</span>
+                    Komunikasi langsung
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    Brief dan format dapat disesuaikan
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    Proses transparan
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    Privasi pelanggan dijaga
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="why-box">
+
+            <h3>
+                🎓 Fokus ke kuliahmu.
+            </h3>
+
+            <p>
+                Serahkan urusan editing, formatting,
+                dan penyusunan dokumen kepada kami
+                sehingga kamu bisa lebih fokus memahami
+                materi dan mempersiapkan presentasi.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PRICING
+========================= -->
+
+<section id="harga">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>Harga</span>
+
+            <h2>Pilih Paket yang Sesuai</h2>
+
+            <p>
+                Harga dapat disesuaikan berdasarkan jenis,
+                jumlah halaman, tingkat kesulitan, dan deadline.
+            </p>
+
+        </div>
+
+
+        <div class="pricing-grid">
+
+
+            <!-- BASIC -->
+
+            <div class="pricing-card">
+
+                <h3>Basic</h3>
+
+                <div class="price">
+                    Rp 20K
+                    <small>/dokumen</small>
+                </div>
+
+                <p style="color:#94a3b8;">
+                    Cocok untuk kebutuhan editing dan formatting.
+                </p>
+
+                <ul class="features">
+
+                    <li>Formatting Word</li>
+                    <li>Perapian layout</li>
+                    <li>Perbaikan typo</li>
+                    <li>1x revisi</li>
+
+                </ul>
+
+                <a
+                    href="https://wa.me/085963959839?text=Halo,%20saya%20tertarik%20dengan%20paket%20Basic."
+                    class="price-btn"
+                    target="_blank">
+                    Pilih Paket
+                </a>
+
+            </div>
+
+
+            <!-- STANDARD -->
+
+            <div class="pricing-card featured">
+
+                <div class="popular">
+                    PALING POPULER
+                </div>
+
+                <h3>Standard</h3>
+
+                <div class="price">
+                    Rp 30K
+                    <small>/dokumen</small>
+                </div>
+
+                <p style="color:#94a3b8;">
+                    Cocok untuk kebutuhan akademik yang lebih lengkap.
+                </p>
+
+                <ul class="features">
+
+                    <li>Penyusunan berbasis materi</li>
+                    <li>Formatting</li>
+                    <li>Referensi & sitasi</li>
+                    <li>2x revisi</li>
+
+                </ul>
+
+                <a
+                    href="https://wa.me/085963959839?text=Halo,%20saya%20tertarik%20dengan%20paket%20Standard."
+                    class="price-btn"
+                    target="_blank">
+                    Pilih Paket
+                </a>
+
+            </div>
+
+
+            <!-- PREMIUM -->
+
+            <div class="pricing-card">
+
+                <h3>Premium</h3>
+
+                <div class="price">
+                    Rp 50K
+                    <small>/project</small>
+                </div>
+
+                <p style="color:#94a3b8;">
+                    Untuk kebutuhan dokumen dan presentasi.
+                </p>
+
+                <ul class="features">
+
+                    <li>Penyusunan berbasis materi</li>
+                    <li>Formatting lengkap</li>
+                    <li>Referensi & sitasi</li>
+                    <li>Slide presentasi</li>
+                    <li>Revisi</li>
+
+                </ul>
+
+                <a
+                    href="https://wa.me/085963959839?text=Halo,%20saya%20tertarik%20dengan%20paket%20Premium."
+                    class="price-btn"
+                    target="_blank">
+                    Pilih Paket
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PORTFOLIO
+========================= -->
+
+<section class="portfolio-section" aria-labelledby="portfolio-title">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>Portfolio</span>
+
+            <h2 id="portfolio-title">Contoh Hasil Pekerjaan</h2>
+
+            <p>
+                Lihat beberapa contoh hasil pekerjaan dengan fokus pada kerapian, struktur, dan tampilan profesional.
+            </p>
+
+        </div>
+
+
+        <div class="portfolio-grid">
+
+        </div>
+
+
+        <div class="portfolio-cta">
+            <h3>Punya dokumen yang ingin dirapikan?</h3>
+            <p>Kirimi kami detail kebutuhanmu dan konsultasikan format yang kamu inginkan.</p>
+            <a class="portfolio-cta-link" href="https://wa.me/085963959839?text=Halo,%20saya%20ingin%20konsultasi%20mengenai%20dokumen%20saya." target="_blank">Konsultasi via WhatsApp</a>
+        </div>
+
+
+        <div class="portfolio-modal" role="dialog" aria-modal="true" aria-labelledby="portfolio-modal-title" aria-describedby="portfolio-modal-description" hidden>
+            <div class="portfolio-modal-dialog">
+                <button class="portfolio-modal-close" type="button" aria-label="Tutup detail portfolio">&times;</button>
+                <div class="portfolio-modal-preview"></div>
+                <span class="portfolio-badge portfolio-modal-category"></span>
+                <h2 id="portfolio-modal-title"></h2>
+                <p class="portfolio-modal-description" id="portfolio-modal-description"></p>
+                <div class="portfolio-modal-details"></div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     HOW TO ORDER
+========================= -->
+
+<section id="proses">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>Cara Order</span>
+
+            <h2>Pesan dalam 4 Langkah</h2>
+
+        </div>
+
+
+        <div class="steps">
+
+            <div class="step">
+
+                <div class="number">01</div>
+
+                <h3>Konsultasi</h3>
+
+                <p>
+                    Jelaskan kebutuhan dan jenis dokumen.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="number">02</div>
+
+                <h3>Kirim Brief</h3>
+
+                <p>
+                    Kirim materi, format, dan ketentuan.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="number">03</div>
+
+                <h3>Proses</h3>
+
+                <p>
+                    Pekerjaan dilakukan sesuai kesepakatan.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="number">04</div>
+
+                <h3>Review</h3>
+
+                <p>
+                    Periksa hasil dan lakukan revisi jika diperlukan.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TESTIMONIAL
+========================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>Contoh testimoni</span>
+
+            <h2 id="testimonial-title">Pengalaman Mereka</h2>
+
+            <p>
+                Lihat pengalaman pelanggan setelah menggunakan layanan kami.
+            </p>
+
+        </div>
+
+
+        <div class="testimonial-grid">
+
+            <article class="testimonial-card">
+
+                <div class="testimonial-user">
+                    <div class="testimonial-avatar" aria-hidden="true">A</div>
+
+                    <div>
+                        <h3>Aulia</h3>
+                        <span>Mahasiswa</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-rating" aria-label="Rating 5 dari 5">
+                    <span aria-hidden="true">★★★★★</span>
+                </div>
+
+                <blockquote class="testimonial-quote">
+                    Format makalahnya jadi jauh lebih rapi. Margin, heading, nomor halaman, sampai daftar isi sudah disesuaikan dengan format yang saya kasih.
+                </blockquote>
+
+            </article>
+
+
+            <article class="testimonial-card">
+
+                <div class="testimonial-user">
+                    <div class="testimonial-avatar" aria-hidden="true">R</div>
+
+                    <div>
+                        <h3>Rizky</h3>
+                        <span>Mahasiswa</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-rating" aria-label="Rating 5 dari 5">
+                    <span aria-hidden="true">★★★★★</span>
+                </div>
+
+                <blockquote class="testimonial-quote">
+                    Saya cukup mepet dengan deadline dan butuh bantuan merapikan dokumen. Prosesnya sesuai kesepakatan dan hasil akhirnya lebih enak dibaca.
+                </blockquote>
+
+            </article>
+
+
+            <article class="testimonial-card">
+
+                <div class="testimonial-user">
+                    <div class="testimonial-avatar" aria-hidden="true">N</div>
+
+                    <div>
+                        <h3>Nadia</h3>
+                        <span>Mahasiswa</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-rating" aria-label="Rating 5 dari 5">
+                    <span aria-hidden="true">★★★★★</span>
+                </div>
+
+                <blockquote class="testimonial-quote">
+                    Materi yang saya punya masih berantakan, kemudian dibantu dirapikan menjadi slide yang lebih terstruktur. Jadi lebih gampang buat saya pelajari sebelum presentasi.
+                </blockquote>
+
+            </article>
+
+        </div>
+
+        <p class="testimonial-note">Contoh testimoni untuk sementara.</p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FAQ
+========================= -->
+
+<section id="faq">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>FAQ</span>
+
+            <h2>Pertanyaan Umum</h2>
+
+        </div>
+
+
+        <div class="faq">
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    Bisa request format dari kampus?
+
+                    <span>+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Bisa. Silakan kirim template atau
+                        ketentuan format dari kampus/dosen.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    Apakah bisa revisi?
+
+                    <span>+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Bisa. Jumlah revisi mengikuti paket
+                        layanan yang dipilih.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    Berapa lama prosesnya?
+
+                    <span>+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Waktu pengerjaan tergantung jumlah halaman,
+                        tingkat kesulitan, dan deadline.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    Bisa konsultasi sebelum order?
+
+                    <span>+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Tentu. Silakan konsultasi terlebih dahulu
+                        melalui WhatsApp.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta">
+
+    <div class="cta-box">
+
+        <h2>
+            Punya Dokumen yang Perlu Dirapikan?
+        </h2>
+
+        <p>
+            Konsultasikan kebutuhanmu sekarang.
+        </p>
+
+        <a
+            href="https://wa.me/085963959839?text=Halo,%20saya%20ingin%20konsultasi%20mengenai%20layanan%20akademik."
+            class="primary-btn"
+            target="_blank">
+
+            💬 Konsultasi Sekarang
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="container footer-container">
+
+        <div>
+            © 2026 Hariri Academic Support
+        </div>
+
+        <div>
+            Bantuan Akademik • Editing • Formatting • Presentasi
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     WHATSAPP FLOAT
+========================= -->
+
+<a
+    href="https://wa.me/085963959839?text=Halo,%20saya%20ingin%20konsultasi."
+    class="whatsapp"
+    target="_blank"
+    aria-label="WhatsApp">
+
+    💬
+
+</a>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach(item => {
+
+        const question = item.querySelector(".faq-question");
+
+        question.addEventListener("click", () => {
+
+            item.classList.toggle("active");
+
+            const icon = question.querySelector("span");
+
+            if (item.classList.contains("active")) {
+                icon.textContent = "−";
+            } else {
+                icon.textContent = "+";
+            }
+
+        });
+
+    });
+
+    const testimonialCards = document.querySelectorAll(".testimonial-card");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reducedMotion || !("IntersectionObserver" in window)) {
+        testimonialCards.forEach(card => card.classList.add("is-visible"));
+    } else {
+        const testimonialObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    testimonialObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        testimonialCards.forEach((card, index) => {
+            card.style.transitionDelay = `${index * 100}ms`;
+            testimonialObserver.observe(card);
+        });
+    }
+
+    const portfolioItems = [
+        {
+            category: "Makalah",
+            title: "Makalah — Pengaruh Artificial Intelligence terhadap Kehidupan Mahasiswa",
+            description: "Contoh makalah dengan struktur akademik, heading, daftar isi, dan daftar pustaka yang rapi.",
+            preview: "DOC",
+            image: "Screenshot.png",
+            details: ["Penyusunan struktur dokumen", "Formatting Word", "Heading dan subheading", "Daftar isi", "Nomor halaman", "Daftar pustaka", "Perapihan layout"]
+        },
+        {
+            category: "Presentasi",
+            title: "PowerPoint — Presentasi Teknologi Informasi",
+            description: "Contoh desain slide presentasi dengan layout bersih dan informasi yang mudah dipahami.",
+            preview: "SLIDE",
+            image: "Screenshot2.png",
+            presentation: true,
+            details: ["Penyusunan struktur slide", "Layout presentasi", "Hierarki informasi", "Perapihan layout"]
+        },
+        {
+            category: "Formatting",
+            title: "Word Formatting — Before & After",
+            description: "Perbandingan dokumen sebelum dan sesudah diperbaiki dari sisi margin, heading, spacing, dan nomor halaman.",
+            preview: "BEFORE / AFTER",
+            image: "Screenshot3.png",
+            beforeAfter: true,
+            details: ["Formatting Word", "Perapihan margin", "Heading dan subheading", "Spacing dokumen", "Nomor halaman", "Daftar isi lebih rapi"]
+        },
+        {
+            category: "Makalah",
+            title: "Makalah — Perkembangan Teknologi Digital",
+            description: "Contoh dokumen akademik dengan struktur pembahasan yang terorganisir.",
+            preview: "DOC",
+            image: "Screenshot4.png",
+            details: ["Penyusunan struktur dokumen", "Formatting Word", "Heading dan subheading", "Nomor halaman", "Perapihan layout"]
+        },
+        {
+            category: "Presentasi",
+            title: "PowerPoint — Materi Kuliah",
+            description: "Contoh slide presentasi yang dibuat lebih terstruktur dan nyaman dipresentasikan.",
+            preview: "SLIDE",
+            image: "Screenshot5.png",
+            presentation: true,
+            details: ["Penyusunan struktur slide", "Layout presentasi", "Hierarki informasi", "Perapihan layout"]
+        }
+    ];
+
+    const portfolioGrid = document.querySelector(".portfolio-grid");
+    const portfolioFilters = document.querySelectorAll(".portfolio-filter");
+    const portfolioModal = document.querySelector(".portfolio-modal");
+    const portfolioModalClose = portfolioModal.querySelector(".portfolio-modal-close");
+    let portfolioModalPreview = portfolioModal.querySelector(".portfolio-modal-preview");
+    const portfolioModalCategory = portfolioModal.querySelector(".portfolio-modal-category");
+    const portfolioModalTitle = portfolioModal.querySelector("#portfolio-modal-title");
+    const portfolioModalDescription = portfolioModal.querySelector("#portfolio-modal-description");
+    const portfolioModalDetails = portfolioModal.querySelector(".portfolio-modal-details");
+    let lastPortfolioTrigger = null;
+    let portfolioObserver = null;
+
+    function createPortfolioPreview(item) {
+        const preview = document.createElement("div");
+        preview.className = "portfolio-preview portfolio-modal-preview";
+        preview.setAttribute("aria-label", `Preview ${item.category.toLowerCase()}`);
+
+        if (item.image) {
+            const image = document.createElement("img");
+            image.className = "portfolio-preview-image";
+            image.src = item.image;
+            image.alt = `Preview ${item.title}`;
+            preview.appendChild(image);
+            return preview;
+        }
+
+        const documentPreview = document.createElement("div");
+        documentPreview.className = `portfolio-document${item.presentation ? " presentation" : ""}`;
+        const previewLabel = document.createElement("span");
+        previewLabel.textContent = item.preview;
+        documentPreview.appendChild(previewLabel);
+        preview.appendChild(documentPreview);
+        return preview;
+    }
+
+    function renderPortfolio(filter = "Semua") {
+        const visibleItems = filter === "Semua"
+            ? portfolioItems
+            : portfolioItems.filter(item => item.category === filter);
+
+        portfolioGrid.innerHTML = visibleItems.map((item, index) => `
+            <article class="portfolio-item portfolio-reveal" data-category="${item.category}" data-index="${portfolioItems.indexOf(item)}">
+                <div class="portfolio-preview" aria-label="Preview ${item.category.toLowerCase()}">
+                    ${item.image
+                        ? `<img class="portfolio-preview-image" src="${item.image}" alt="Preview ${item.title}">`
+                        : `<div class="portfolio-document${item.presentation ? " presentation" : ""}"><span>${item.preview}</span></div>`}
+                </div>
+                <div class="portfolio-content">
+                    <span class="portfolio-badge">${item.category}</span>
+                    <h3>${item.title}</h3>
+                    <p>${item.description}</p>
+                    <span class="portfolio-label">${index % 2 === 0 ? "Sample Work" : "Contoh Hasil"}</span>
+                    <button class="portfolio-detail" type="button" data-index="${portfolioItems.indexOf(item)}">Lihat Detail</button>
+                </div>
+            </article>
+        `).join("");
+
+        const cards = portfolioGrid.querySelectorAll(".portfolio-item");
+        cards.forEach((card, index) => {
+            card.style.transitionDelay = `${index * 80}ms`;
+        });
+
+        if (portfolioObserver) portfolioObserver.disconnect();
+
+        if (reducedMotion || !("IntersectionObserver" in window)) {
+            cards.forEach(card => card.classList.add("is-visible"));
+        } else {
+            portfolioObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        portfolioObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+            cards.forEach(card => portfolioObserver.observe(card));
+        }
+    }
+
+    function openPortfolioModal(index, trigger) {
+        const item = portfolioItems[index];
+        if (!item) return;
+
+        lastPortfolioTrigger = trigger;
+        portfolioModalPreview.replaceWith(createPortfolioPreview(item));
+        portfolioModalPreview = portfolioModal.querySelector(".portfolio-modal-preview");
+        portfolioModalCategory.textContent = item.category;
+        portfolioModalTitle.textContent = item.title;
+        portfolioModalDescription.textContent = item.description;
+
+        const detailsTitle = document.createElement("h3");
+        detailsTitle.textContent = "Detail pekerjaan";
+        portfolioModalDetails.replaceChildren(detailsTitle);
+
+        if (item.beforeAfter) {
+            const comparison = document.createElement("div");
+            comparison.className = "portfolio-before-after";
+            comparison.innerHTML = `
+                <div><strong>BEFORE</strong><ul><li>Font tidak konsisten</li><li>Spacing berantakan</li><li>Heading tidak terstruktur</li><li>Nomor halaman tidak rapi</li></ul></div>
+                <div><strong>AFTER</strong><ul><li>Font konsisten</li><li>Spacing rapi</li><li>Heading terstruktur</li><li>Nomor halaman profesional</li><li>Daftar isi lebih rapi</li></ul></div>
+            `;
+            portfolioModalDetails.appendChild(comparison);
+        } else {
+            const list = document.createElement("ul");
+            list.className = "portfolio-detail-list";
+            item.details.forEach(detail => {
+                const listItem = document.createElement("li");
+                listItem.textContent = detail;
+                list.appendChild(listItem);
+            });
+            portfolioModalDetails.appendChild(list);
+        }
+
+        portfolioModal.hidden = false;
+        document.body.classList.add("modal-open");
+        requestAnimationFrame(() => portfolioModal.classList.add("is-open"));
+        portfolioModalClose.focus();
+    }
+
+    function closePortfolioModal() {
+        portfolioModal.classList.remove("is-open");
+        document.body.classList.remove("modal-open");
+        setTimeout(() => {
+            portfolioModal.hidden = true;
+            if (lastPortfolioTrigger) lastPortfolioTrigger.focus();
+        }, 300);
+    }
+
+    renderPortfolio();
+
+    portfolioFilters.forEach(filterButton => {
+        filterButton.addEventListener("click", () => {
+            portfolioFilters.forEach(button => {
+                const isActive = button === filterButton;
+                button.classList.toggle("active", isActive);
+                button.setAttribute("aria-pressed", String(isActive));
+            });
+
+            portfolioGrid.classList.add("is-transitioning");
+            setTimeout(() => {
+                renderPortfolio(filterButton.dataset.filter);
+                requestAnimationFrame(() => portfolioGrid.classList.remove("is-transitioning"));
+            }, 250);
+        });
+    });
+
+    portfolioGrid.addEventListener("click", event => {
+        const detailButton = event.target.closest(".portfolio-detail");
+        if (detailButton) openPortfolioModal(Number(detailButton.dataset.index), detailButton);
+    });
+
+    portfolioModalClose.addEventListener("click", closePortfolioModal);
+    portfolioModal.addEventListener("click", event => {
+        if (event.target === portfolioModal) closePortfolioModal();
+    });
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && !portfolioModal.hidden) closePortfolioModal();
+    });
+
+</script>
+
+</body>
+</html>
