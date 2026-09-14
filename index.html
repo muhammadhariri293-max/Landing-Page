@@ -9,6 +9,8 @@
     <meta name="description"
           content="Bantuan penyusunan, editing, formatting, referensi, dan presentasi akademik yang rapi dan terstruktur.">
 
+    <link rel="icon" type="image/png" href="logo%20web.png">
+
     <style>
         :root {
             --bg-main: #090d16;
@@ -87,9 +89,20 @@
         }
 
         .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 0;
             font-size: 20px;
             font-weight: 800;
             letter-spacing: -0.5px;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            flex: 0 0 50px;
+            object-fit: contain;
         }
 
         .logo span {
@@ -1261,6 +1274,27 @@
                 top: 10px;
             }
 
+            .nav-container {
+                height: 60px;
+            }
+
+            .logo {
+                gap: 7px;
+                font-size: 16px;
+                letter-spacing: -0.3px;
+            }
+
+            .logo img {
+                width: 42px;
+                height: 42px;
+                flex-basis: 42px;
+            }
+
+            .nav-button {
+                padding: 9px 12px;
+                font-size: 12px;
+            }
+
             .hero {
                 padding: 80px 0 50px;
             }
@@ -1290,7 +1324,7 @@
     </style>
 </head>
 
-<body>
+<body id="top">
 
 <!-- =========================
      NAVBAR
@@ -1299,7 +1333,8 @@
 <nav>
     <div class="container nav-container">
 
-        <a href="#" class="logo">
+        <a href="#top" class="logo" aria-label="Kembali ke halaman utama">
+            <img src="logo%20web.png" alt="">
             Hariri Academic <span>Support</span>
         </a>
 
